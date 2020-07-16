@@ -1,0 +1,9 @@
+.dashboardCard {
+    width: 60%;
+    min-height: 400px;
+}
+
+.bottomLink {
+    position: absolute; 
+    bottom: 5px; 
+}

@@ -1,0 +1,36 @@
+.navbar {
+    background-color:#3f0f84;
+}
+
+.btn {
+    background-color: #001f3f !important;
+    color: #FFFFFF !important;
+}
+
+/* .controlBtn {
+    background-color: #001f3f;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-family: "Calibri", "Georgia", "Times New Roman", Times, serif;
+    text-align: center;
+    width: 80px;
+    border-radius: 25px;
+    text-decoration: none;
+    border: none
+} */
+
+/* .nav-link{
+    color: #ffffff !important;
+}
+
+.nav-item:hover {
+    background-color: #001f3f;
+    text-decoration: none;
+    padding: 5px 1px 5px 1px;
+    width: 100px;
+}
+
+.nav-link:hover {
+    background-color: #777777;
+    text-decoration: none;
+} */

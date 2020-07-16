@@ -1,0 +1,17 @@
+.content {
+    margin: 0 auto;
+    max-width: 800px;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.modal {
+    height: 200px !important;
+    position: fixed !important; /* or absolute */
+    top: 40% !important;
+    left: 20% !important;
+}
+
+.fc-title {
+    color: black;
+}

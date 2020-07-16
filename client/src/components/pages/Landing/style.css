@@ -1,0 +1,53 @@
+.backgroundImg {
+    background-image: url(../../assets/images/landingpagebackgroundimg.jpg);
+    background-size:     cover;                  
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.landingJumbo {
+    width: 60%;
+    background-color: rgba(204, 204, 204, 0.6) !important;
+}
+
+.cardBackground{
+    background-color: rgb(231, 248, 255)!important;
+}
+
+
+.jumboText {
+    color: black;
+}
+
+.companyName {
+    font-size: 5vw;
+}
+
+.companySlogan {
+    font-size: 3vw;
+}
+
+.fa-stack {
+    vertical-align: top;
+    color: grey
+}
+
+.facebookLogo:hover {
+    color: #4267b2 !important;
+}
+
+.twitterLogo:hover {
+    color: #1da1f2 !important;
+}
+
+.instagramLogo:hover {
+    color: #f09433; 
+}
+
+.linkedinLogo:hover {
+    color: #0073b0 !important;
+}
+
+.googleLogo:hover {
+    color: #dc5246 !important;
+}
