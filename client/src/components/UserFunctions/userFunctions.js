@@ -1,10 +1,11 @@
 import axios from 'axios';
 
+//change port
 let serverUrl = "http://localhost:5001"
 // (change serverUrl on heroku)
 // if (process.env.NODE_ENV === "production") {
-//     serverUrl = 'https://pure-wave-73002.herokuapp.com/';
-// }
+//     serverUrl = 'https://{heroku}.com/';
+// 
 
 export const registerUser = userData => {
     // console.log(userData);
