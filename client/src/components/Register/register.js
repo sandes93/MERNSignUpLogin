@@ -20,7 +20,6 @@ class Register extends Component {
         let formIsValid = true;
         // email
         const inputEmail = this.state.email;
-        // const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
         const emailRegex = /^\w+([\.-]?\w+)*@[a-z]+([\.-]?[a-z]+)*(\.[a-z]{2,4})+$/;
         const emailResult = emailRegex.test(inputEmail);
         if (!this.state.email) {
