@@ -14,7 +14,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@zendeskgarden/react-dropdowns": "^8.5.0",
     "@zendeskgarden/react-theming": "^8.5.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
     "jwt-decode": "^2.2.0",
