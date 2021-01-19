@@ -13,7 +13,7 @@ import "./App.css";
 
 import StartUp from './components/pages/StartUp/startUp';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Auth from './Auth';
 
 class App extends Component {
     render() {
@@ -26,7 +26,7 @@ class App extends Component {
                             <Route exact path="/register" component={Register} />
                             <Route exact path="/login" component={Login} />
                             <Route exact path="/profile" component={Profile} />
-                            <Route exact path="/dashboard" component={Dashboard} />
+                            <Route exact path="/dashboard" component={Auth(Dashboard)} />
                             <Route exact path="/other" component={Other} />
                             <Route exact path="/startUp" component={StartUp} />
                         </div>
