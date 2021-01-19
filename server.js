@@ -33,7 +33,7 @@ app.use(
 app.use(express.static("public"));
 // DB Config
 const MONGODB_URI = ""
-const mongoURI = "mongodb://localhost/mernlogin";
+const mongoURI = "mongodb+srv://trilogy:trilogy@cluster0.u8m9s.mongodb.net/mernlogin?retryWrites=true&w=majority";
 
 // Connect to MongoDB
 mongoose.connect( MONGODB_URI || mongoURI, {
