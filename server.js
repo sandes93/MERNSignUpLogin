@@ -33,7 +33,7 @@ app.use(
 app.use(express.static("public"));
 // DB Config
 const MONGODB_URI = ""
-const mongoURI = "mongodb://mernloginregister:nTwr2BuLLe8_#5A@ds047478.mlab.com:47478/heroku_1mpw8g0c";
+const mongoURI = "mongodb://localhost/mernlogin";
 
 // Connect to MongoDB
 mongoose.connect( MONGODB_URI || mongoURI, {

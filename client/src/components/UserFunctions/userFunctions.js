@@ -1,8 +1,6 @@
 import axios from 'axios';
 
 //change port
-let serverUrl = "http://localhost:5001"
-let herokuURL= window.location.origin;
 
 export const registerUser = userData => {
     // console.log(userData);
