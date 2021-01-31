@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import Landing from './components/pages/Landing/Landing.js'
-export default function(ComposedComponent) {
-  class Authentication extends Component {
-    render() {
-        if (localStorage.getItem('usertoken')) {
-            return <ComposedComponent {...this.props} />
+import React from 'react';
+import Landing from './components/pages/Landing/Landing';
+import { useAppContext } from './store';
 
-        } else {
-            return <Landing />
-        }
-    }
-  }
+function Auth(ComposedComponent) {
+    const [ state ] = useAppContext();
 
-
-  return Authentication;
+    return function Authentication(props) {
+        return state.isAuthenticated
+            ? <ComposedComponent {...props} />
+            : <Landing />;
+    };
 }
+
+export default Auth;

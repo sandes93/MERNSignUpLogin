@@ -1,0 +1,5 @@
+tabsize = 4
+spell_check = true
+translate_tabs_to_spaces = true
+rulers = \[120]
+line_numbers = true
