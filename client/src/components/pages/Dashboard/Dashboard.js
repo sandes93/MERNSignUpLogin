@@ -1,45 +1,26 @@
-import React, { Component } from "react";
-import jwt_decode from 'jwt-decode';
-import Sidebar from "../../Sidebar/Sidebar";
-import DasboardNewsCard from "../../DasboardNewsCard/DasboardNewsCard"
+import React from 'react';
+import Sidebar from '../../Sidebar/Sidebar';
+import DashboardNewsCard from '../../DashboardNewsCard/DashboardNewsCard';
+import { useAppContext, useLoginCheck } from '../../../store';
 
+function DashBoard() {
+    const [state,  appDispatch ] = useAppContext();
 
-class DashBoard extends Component {
-    constructor() {
-        super()
-        this.state = {
-            first_name: '',
-            last_name: '',
-            email: '',
-            password: ''
-        }
-    }
+    useLoginCheck(appDispatch);
 
-    componentDidMount() {
-        const token = localStorage.usertoken;
-        const decoded = jwt_decode(token);
-        this.setState({
-            first_name: decoded.first_name,
-            last_name: decoded.last_name,
-            email: decoded.email
-        })
-    }
-    
-    render() {
-        return (
-            <div className="container-fluid pl-0">
-                    <Sidebar />
-                    <div>
-                        <h1>
-                             Welcome { this.state.first_name } { this.state.last_name }
-                        </h1>
-                        <div className="d-flex flex-row-reverse mr-5">
-                            <DasboardNewsCard />
-                        </div>
-                    </div>
+    return (
+        <div className="pl-0 container-fluid">
+            <Sidebar />
+            <div>
+                <h1>
+                    Welcome {state.user.first_name} {state.user.last_name}
+                </h1>
+                <div className="flex-row-reverse mr-5 d-flex">
+                    <DashboardNewsCard />
+                </div>
             </div>
-        );
-    } 
+        </div>
+    );
 }
 
 export default DashBoard;
