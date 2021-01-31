@@ -11,7 +11,7 @@ import Profile from './components/Profile/Profile';
 import StartUp from './components/pages/StartUp/StartUp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AppContextProvider } from './store';
-import Auth from './Auth';
+// import Auth from './Auth';
 
 import './App.css';
 
@@ -19,14 +19,14 @@ function App() {
     return (
         <AppContextProvider>
             <Router>
-                <div className="container-fluid pl-0 pr-0 m-0">
+                <div className="pl-0 pr-0 m-0 container-fluid">
                     <Navbar />
                     <Route exact path="/" component={Landing} />
-                    <div className="container-fluid m-0 p-0">
+                    <div className="p-0 m-0 container-fluid">
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/profile" component={Profile} />
-                        <Route exact path="/dashboard" component={Auth(Dashboard)} />
+                        <Route exact path="/dashboard" component={Dashboard} />
                         <Route exact path="/other" component={Other} />
                         <Route exact path="/startUp" component={StartUp} />
                     </div>

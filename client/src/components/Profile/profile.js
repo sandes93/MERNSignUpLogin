@@ -1,9 +1,10 @@
 import React from 'react';
-import { useAppContext, useLoginCheck } from '../../store';
+import { useAppContext } from '../../store';
+import { useLoginCheck } from '../../utils/setAuthToken';
 import Sidebar from '../Sidebar/Sidebar';
 
 function Profile() {
-    const [{ authState }, { appDispatch }] = useAppContext();
+    const [authState, appDispatch] = useAppContext();
 
     useLoginCheck(appDispatch);
 

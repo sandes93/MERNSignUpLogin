@@ -1,18 +1,21 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAppContext } from '../../store';
-import { setAuthToken } from '../../utils/setAuthToken';
+import { useLoginCheck, logout } from '../../utils/setAuthToken';
 import './style.css';
 
-function Navbar(props) {
+function Navbar() {
     const history = useHistory();
-    const [ state ] = useAppContext();
+    const [state, dispatch] = useAppContext();
 
-    const logOut = (e) => {
+    useLoginCheck(dispatch);
+
+    const handleLogOut = (e) => {
         e.preventDefault();
-        setAuthToken(false);
+        logout(dispatch);
         history.push('/');
     };
+
     const loginRegLink = (
         <ul className="navbar-nav list-group list-group-horizontal">
             <li>
@@ -45,7 +48,7 @@ function Navbar(props) {
                     id="logoutBtn"
                     data-toggle="modal"
                     data-target="#logoutModal"
-                    onClick={logOut}
+                    onClick={handleLogOut}
                 >
                     <div>Logout</div>
                 </button>

@@ -1,10 +1,11 @@
 import React from 'react';
 import Sidebar from '../../Sidebar/Sidebar';
 import DashboardNewsCard from '../../DashboardNewsCard/DashboardNewsCard';
-import { useAppContext, useLoginCheck } from '../../../store';
+import { useAppContext } from '../../../store';
+import { useLoginCheck } from '../../../utils/setAuthToken';
 
 function DashBoard() {
-    const [state,  appDispatch ] = useAppContext();
+    const [state, appDispatch] = useAppContext();
 
     useLoginCheck(appDispatch);
 
