@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-function DashboardPayslipCard() {
+function DashboardNewsCard() {
     return (
         <div className="dashboardCard card cardBackground">
             <div className="card-body">
@@ -15,4 +15,4 @@ function DashboardPayslipCard() {
     );
 }
 
-export default DashboardPayslipCard;
+export default DashboardNewsCard;
