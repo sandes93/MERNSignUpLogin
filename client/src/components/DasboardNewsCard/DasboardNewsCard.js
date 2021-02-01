@@ -1,18 +1,27 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "./style.css"
 
-class DasboardPayslipCard extends Component {
-    render() {
-        return (
-            <div className="dashboardCard card cardBackground">
-                <div className="card-body">
-                    <h4 className="card-subtitle">card</h4>
-                    <p className="card-text">description</p>
-                    <a href="/" className="card-link bottomLink">More details</a>
-                </div>
+function DasboardPayslipCard({
+    name,
+    description,
+    buttonLink,
+    buttonText
+}) {
+
+    const [state] = useState()
+
+    return (
+        <div className="dashboardCard card cardBackground">
+            <div className="card-body">
+                <h4 className="card-subtitle">{name}</h4>
+                <p className="card-text">{description}</p>
+                <a href={buttonLink} className="card-link bottomLink">{buttonText}</a>
             </div>
-        );
-    }
+        </div>
+    );
+
 }
+
+
 
 export default DasboardPayslipCard;
