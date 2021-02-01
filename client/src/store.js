@@ -2,7 +2,25 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
-const initialState = {};
+const initialState = {
+    error: {},
+    auth: {
+        isAuthenticated: false,
+        user: {},
+        loading: false
+    },
+    data: {
+        transaction: [
+            {
+                id: '123',
+                created_date: '2021-02-01',
+                amount: 100,
+                type: 'credit'
+            }
+        ],
+        assets: [],
+    }
+};
 
 const middleware = [thunk];
 
