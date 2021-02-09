@@ -21,6 +21,12 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
+if (process.env.NODE_ENV !== 'production') {
+    app.use((req, res, next) => {
+        setTimeout(next, 1000);
+    });
+}
+
 // Bodyparser middleware
 app.use(bodyParser.json());
 app.use(cors());
@@ -39,6 +45,7 @@ mongoose
     .connect(process.env.MONGODB_URI || mongoURI, {
         useNewUrlParser: true,
         useFindAndModify: false,
+        useUnifiedTopology: true,
     })
     .then(() => console.log('MongoDB successfully connected'))
     .catch((err) => console.log(err));
