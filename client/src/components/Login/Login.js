@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { GET_ERRORS, SET_CURRENT_USER } from '../../actions/types';
+import { GET_ERRORS } from '../../actions/types';
 import { useAppContext } from '../../store';
-import { loginUser } from '../../utils/userFunctions';
-import { setAuthToken } from '../../utils/setAuthToken';
+import { loginUser } from '../../utils/userApis';
 import { useHistory } from 'react-router-dom';
-import jwt_decode from 'jwt-decode';
+import { setUserLoggedIn } from '../../actions';
 
 function Login() {
     const history = useHistory();
@@ -33,12 +32,9 @@ function Login() {
             const response = await loginUser(user);
             // Set token to localStorage
             const token = response.data;
-            // Set token to Auth header
-            setAuthToken(token);
-            // Decode token to get user data
-            const decodedToken = jwt_decode(token);
-            // Set current user
-            appDispatch({ type: SET_CURRENT_USER, payload: decodedToken });
+            // Set user to logged in
+            await setUserLoggedIn(token, appDispatch);
+
             history.push('/dashboard');
         } catch (error) {
             appDispatch({

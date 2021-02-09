@@ -18,6 +18,10 @@ export const loginUser = (userData) => {
     });
 };
 
+export const getUser = () => {
+    return axios.get('/api/profile');
+};
+
 export const getUsers = () => {
-    return axios.get('/api/displayusers').then((res) => res.data);
+    return axios.get('/api/displayusers')
 };

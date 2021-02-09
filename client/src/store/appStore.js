@@ -1,10 +1,12 @@
 import { isEmpty } from 'lodash';
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from '../actions/types';
 import jwt_decode from 'jwt-decode';
+import { setAuthToken } from '../utils/setAuthToken';
 
 const getToken = () => {
     const token = localStorage.getItem('userToken');
     if (token) {
+        setAuthToken(token);
         const decodedToken = jwt_decode(token);
         return decodedToken;
     }
@@ -13,7 +15,7 @@ const getToken = () => {
 
 
 export const appInitialState = {
-    isAuthenticated: false,
+    isAuthenticated: !isEmpty(getToken()),
     user: getToken(),
     loading: false,
     errors: {}

@@ -2,7 +2,7 @@ export const checkFormFields = ({ email, first_name, last_name, password }) => {
     let errors = {};
     let formIsValid = true;
     // email
-    const emailRegex = /^\w+([\.-]?\w+)*@[a-z]+([\.-]?[a-z]+)*(\.[a-z]{2,4})+$/;
+    const emailRegex = /^\w+([.-]?\w+)*@[a-z]+([.-]?[a-z]+)*(\.[a-z]{2,4})+$/;
     const emailResult = emailRegex.test(email);
 
     if (!email) {
