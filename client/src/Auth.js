@@ -1,14 +1,14 @@
 import React from 'react';
-import Landing from './components/pages/Landing/Landing';
+import { Redirect } from 'react-router-dom';
 import { useAppContext } from './store';
 
 function Auth(ComposedComponent) {
-    const [ state ] = useAppContext();
+    const [ state, dispatch ] = useAppContext();
 
     return function Authentication(props) {
         return state.isAuthenticated
-            ? <ComposedComponent {...props} />
-            : <Landing />;
+            ? <ComposedComponent {...props} state={state} dispatch={dispatch} />
+            : <Redirect to="/login" />;
     };
 }
 

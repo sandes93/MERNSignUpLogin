@@ -25,10 +25,10 @@ function App() {
                     <div className="p-0 m-0 container-fluid">
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/login" component={Login} />
-                        <Route exact path="/profile" component={Profile} />
+                        <Route exact path="/profile" component={Auth(Profile)} />
                         <Route exact path="/dashboard" component={Auth(Dashboard)} />
-                        <Route exact path="/other" component={Other} />
-                        <Route exact path="/startUp" component={StartUp} />
+                        <Route exact path="/other" component={Auth(Other)} />
+                        <Route exact path="/startUp" component={Auth(StartUp)} />
                     </div>
                 </div>
             </Router>
