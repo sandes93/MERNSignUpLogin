@@ -1,20 +1,20 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAppContext } from '../../store';
-import { useLoginCheck, logout } from '../../utils/setAuthToken';
+import { setUserLogout } from '../../actions';
 import './style.css';
 
 function Navbar() {
     const history = useHistory();
     const [state, dispatch] = useAppContext();
 
-    useLoginCheck(dispatch);
-
     const handleLogOut = (e) => {
         e.preventDefault();
-        logout(dispatch);
+        setUserLogout(dispatch);
         history.push('/');
     };
+
+    console.log({state});
 
     const loginRegLink = (
         <ul className="navbar-nav list-group list-group-horizontal">

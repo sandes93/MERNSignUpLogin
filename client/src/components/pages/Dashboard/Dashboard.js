@@ -2,12 +2,11 @@ import React from 'react';
 import Sidebar from '../../Sidebar/Sidebar';
 import DashboardNewsCard from '../../DashboardNewsCard/DashboardNewsCard';
 import { useAppContext } from '../../../store';
-import { useLoginCheck } from '../../../utils/setAuthToken';
 
 function DashBoard() {
-    const [state, appDispatch] = useAppContext();
+    const [state] = useAppContext();
 
-    useLoginCheck(appDispatch);
+    console.log({state});
 
     return (
         <div className="pl-0 container-fluid">

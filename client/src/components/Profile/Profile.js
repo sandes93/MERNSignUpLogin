@@ -1,12 +1,9 @@
 import React from 'react';
 import { useAppContext } from '../../store';
-import { useLoginCheck } from '../../utils/setAuthToken';
 import Sidebar from '../Sidebar/Sidebar';
 
 function Profile() {
-    const [authState, appDispatch] = useAppContext();
-
-    useLoginCheck(appDispatch);
+    const [authState] = useAppContext();
 
     return (
         <div className="pl-0 m-0 container-fluid">
