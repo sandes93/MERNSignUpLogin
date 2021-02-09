@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { registerUser, getUsers } from '../../utils/userFunctions';
+import { registerUser, getUsers } from '../../utils/userApis';
 import { checkFormFields } from './checkFormFields';
 
 function Register(props) {
@@ -24,7 +24,7 @@ function Register(props) {
         setRegisterState({ ...registerState, [event.target.name]: event.target.value });
     };
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
         let errors = {};
         handleValidation();
         event.preventDefault();
@@ -35,20 +35,15 @@ function Register(props) {
             password: registerState.password,
         };
         if (registerState.formIsValid) {
-            getUsers().then((data) => {
-                console.log(data);
-                var alreadyRegisteredUser = data
-                    .find((element) => element.email === registerState.email)
-                if (!alreadyRegisteredUser) {
-                    registerUser(userData).then((res) => {
-                        history.push('/login');
-                    });
-                    console.log('Form submitted');
-                } else {
-                    errors['email'] = 'Email already exists';
-                    setRegisterState({ ...registerState, errors });
-                }
-            });
+            try {
+                const res = await registerUser(userData)
+                console.log(res.data);
+                history.push('/login');
+                console.log('Form submitted');
+            } catch (error) {
+                errors['email'] = 'Email already exists';
+                setRegisterState({ ...registerState, errors })
+            }
         } else {
             console.log('Form has errors.');
         }
