@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { AppContextProvider } from './store';
 
 import './App.css';
-import PrivateRoute from './Auth';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
     return (
