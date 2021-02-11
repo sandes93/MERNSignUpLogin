@@ -1,15 +1,17 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { useAppContext } from './store';
 
-function Auth(ComposedComponent) {
-    const [ state, dispatch ] = useAppContext();
+const PrivateRoute = ({ component: Component, ...rest }) => {
+    const [state] = useAppContext();
+    return (
+        <Route {...rest} render={props => (
+            state.isAuthenticated
+                ? <Component {...props} />
+                : <Redirect to="/signin" />
+        )} />
+    );
+};
 
-    return function Authentication(props) {
-        return state.isAuthenticated
-            ? <ComposedComponent {...props} state={state} dispatch={dispatch} />
-            : <Redirect to="/login" />;
-    };
-}
 
-export default Auth;
+export default PrivateRoute;

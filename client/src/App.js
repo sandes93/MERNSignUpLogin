@@ -11,9 +11,9 @@ import Profile from './components/Profile/Profile';
 import StartUp from './components/pages/StartUp/StartUp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AppContextProvider } from './store';
-import Auth from './Auth';
 
 import './App.css';
+import PrivateRoute from './Auth';
 
 function App() {
     return (
@@ -25,10 +25,10 @@ function App() {
                     <div className="p-0 m-0 container-fluid">
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/login" component={Login} />
-                        <Route exact path="/profile" component={Auth(Profile)} />
-                        <Route exact path="/dashboard" component={Auth(Dashboard)} />
-                        <Route exact path="/other" component={Auth(Other)} />
-                        <Route exact path="/startUp" component={Auth(StartUp)} />
+                        <PrivateRoute exact path="/profile" component={Profile} />
+                        <PrivateRoute exact path="/dashboard" component={(Dashboard)} />
+                        <PrivateRoute exact path="/other" component={(Other)} />
+                        <PrivateRoute exact path="/startUp" component={StartUp} />
                     </div>
                 </div>
             </Router>
